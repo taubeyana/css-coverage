@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .mystyle {
+        display: none;
+    }
+</style>
+<body>
+    <div class="css-rules">
+        {{#each cssRules}}
+        <div class="css-file">
+            <h1 class="header-{{@index}}">{{ this.header }}</h1>
+            <pre class="mystyle" id="css-{{@index}}">{{ this.text }}</pre>
+        </div>
+        {{/each}}
+    </div>
+</body>
+<script>
+    document.querySelectorAll('h1').forEach(el => el.addEventListener('click', toggleDisplay))
+    function toggleDisplay() {
+        this.nextElementSibling.classList.toggle("mystyle")
+    }
+</script>
+</html>
